@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, X } from 'lucide-react'
@@ -30,7 +30,7 @@ export default function SearchDropdown({
   const searchRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   
-  const { searchProducts } = useProducts()
+  const { } = useProducts()
   const debouncedSearchTerm = useDebounce(searchTerm, 300)
 
   // Focus input when opened

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Search, User } from 'lucide-react'
 // Removed useCategories import - categories section removed
 import useSettings from '../../hooks/useSettings'
