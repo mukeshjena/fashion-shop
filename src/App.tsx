@@ -6,7 +6,6 @@ import { ConfirmProvider } from './hooks/useConfirm'
 import Layout from './components/layout/Layout'
 import AdminLayout from './admin/components/AdminLayout'
 import ProtectedRoute from './components/common/ProtectedRoute'
-import ConnectionMonitor from './components/common/ConnectionMonitor'
 import ScrollToTop from './components/common/ScrollToTop'
 
 // Public Pages
