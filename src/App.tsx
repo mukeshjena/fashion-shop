@@ -65,7 +65,7 @@ function App() {
           </Routes>
           
               {/* Connection Monitor - Always visible */}
-              <ConnectionMonitor />
+              /*<ConnectionMonitor />*/
             </Router>
           </AuthProvider>
         </ConfirmProvider>
