@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Clean Design System Variables */
+    --gradient-primary: linear-gradient(135deg, #000000 0%, #333333 100%);
+    --gradient-secondary: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    --gradient-accent: linear-gradient(135deg, #000000 0%, #ffffff 100%);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --shadow-glass: none;
+    --shadow-elegant: none;
+    --shadow-deep: none;
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark {
+    --gradient-primary: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    --gradient-secondary: linear-gradient(135deg, #000000 0%, #111111 100%);
+    --gradient-accent: linear-gradient(135deg, #ffffff 0%, #000000 100%);
+    --glass-bg: rgba(0, 0, 0, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow-glass: none;
+    --shadow-elegant: none;
+    --shadow-deep: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+  
+  /* Enhanced Typography */
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  /* Mobile-first responsive design */
+  @media (max-width: 640px) {
+    body {
+      font-size: 14px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+    }
+  }
+  
+  /* Enhanced Dark Mode Overrides */
+  .dark .bg-white {
+    @apply bg-black;
+  }
+  
+  .dark .bg-gray-50 {
+    @apply bg-gray-900;
+  }
+  
+  .dark .bg-gray-100 {
+    @apply bg-gray-800;
+  }
+  
+  .dark .bg-gray-200 {
+    @apply bg-gray-700;
+  }
+  
+  .dark .text-black {
+    @apply text-white;
+  }
+  
+  .dark .text-gray-900 {
+    @apply text-white;
+  }
+  
+  .dark .text-gray-800 {
+    @apply text-gray-100;
+  }
+  
+  .dark .text-gray-700 {
+    @apply text-gray-200;
+  }
+  
+  .dark .text-gray-600 {
+    @apply text-gray-300;
+  }
+  
+  .dark .border-gray-200 {
+    @apply border-gray-800;
+  }
+  
+  .dark .border-gray-300 {
+    @apply border-gray-700;
+  }
+}
+
+@layer components {
+  /* Enhanced Button System */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg;
+    @apply text-white bg-gray-900 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-gray-500/20;
+    @apply transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg;
+    @apply text-gray-900 dark:text-gray-100 bg-transparent border border-gray-300 dark:border-gray-600;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+    @apply focus:outline-none focus:ring-2 focus:ring-gray-500/20;
+    @apply transition-colors duration-200;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-lg;
+    @apply text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+    @apply transition-all duration-200 ease-out;
+  }
+
+  /* Clean Card Effects */
+  .glass-card {
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg;
+  }
+
+  .glass-nav {
+    @apply bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .glass-modal {
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg;
+  }
+
+  /* Enhanced Text Gradients */
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Enhanced Shimmer */
+  .shimmer {
+    @apply relative overflow-hidden;
+    background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0.1) 25%, 
+      rgba(255, 255, 255, 0.3) 50%, 
+      rgba(255, 255, 255, 0.1) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .dark .shimmer {
+    background: linear-gradient(90deg, 
+      rgba(0, 0, 0, 0.1) 25%, 
+      rgba(255, 255, 255, 0.1) 50%, 
+      rgba(0, 0, 0, 0.1) 75%);
+  }
+
+  /* Clean Card Styles */
+  .card-elegant {
+    @apply bg-white dark:bg-gray-900 rounded-lg;
+    @apply border border-gray-200 dark:border-gray-700;
+    @apply transition-colors duration-200;
+  }
+
+  .card-minimal {
+    @apply bg-gray-50 dark:bg-gray-800 rounded-lg;
+    @apply border border-gray-200 dark:border-gray-700;
+    @apply transition-colors duration-200;
+  }
+
+
+}
+
+@layer utilities {
+  /* Enhanced Animations */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Animation Classes */
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out;
+  }
+
+  /* Enhanced Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-600;
+  }
+
+  /* Enhanced Responsive Utilities */
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  .mobile-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+
+  .mobile-heading {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
+  }
+
+  .mobile-subheading {
+    @apply text-lg sm:text-xl lg:text-2xl xl:text-3xl;
+  }
+
+  /* Professional Spacing */
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24 xl:py-32;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16;
+  }
+
+  /* Enhanced Transitions */
+  .transition-elegant {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-smooth {
+    transition: all 0.2s ease-out;
+  }
+
+  /* Glass Morphism Utilities */
+  .backdrop-blur-glass {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Hide Scrollbar */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Focus States */
+  .focus-elegant:focus {
+    @apply outline-none ring-4 ring-black/20 dark:ring-white/20;
+  }
+
+  /* Clean Hover Effects */
+  .hover-lift {
+    @apply transition-colors duration-200;
+  }
+
+  .hover-glow {
+    @apply transition-colors duration-200;
+  }
+
+  /* Clean Design Utilities */
+  .clean-card {
+    @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg;
+  }
+
+  .clean-button {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+  }
+
+  .clean-input {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent;
+  }
+}
